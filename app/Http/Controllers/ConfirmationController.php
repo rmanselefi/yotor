@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class ConfirmationController extends Controller
 {
@@ -16,7 +17,9 @@ class ConfirmationController extends Controller
         if (! session()->has('success_message')) {
             return redirect('/');
         }
-
-        return view('thankyou');
+        $categories=Category::all();
+        return view('thankyou')->with([
+            'categories'=>$categories
+        ]);
     }
 }

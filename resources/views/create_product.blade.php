@@ -120,25 +120,33 @@
                             </h4>
                             <div class="uk-accordion-content" aria-hidden="false">
                               <ul class="uk-list tm-scrollbox">
-                                {{-- @foreach ($allCategories as $category)
-                                <li>
-                                  <input class="tm-checkbox" id="brand-{{$category->index}}"  name="category[]" value="{{ $category->id }}" type="checkbox" {{ $categoriesForProduct->contains($category) ? 'checked' : '' }}>
-                                  <label for="brand-1">
-                                    <span>{{ $category->name }}</span>
-                                  </label>
-                                </li>
-                                @endforeach      --}}
-
-                                @for ($i = 1; $i < count($allCategories); $i++)
+                                @for ($i = 0; $i < count($allCategories); $i++)
                                     <li>
                                   <input class="tm-checkbox" id="brand-{{$i}}"  name="category[]" value="{{ $allCategories[$i]->id }}" type="checkbox" {{ $categoriesForProduct->contains($allCategories[$i]) ? 'checked' : '' }}>
                                   <label for="brand-{{$i}}">
                                     <span>{{ $allCategories[$i]->name }}</span>
                                   </label>
                                 </li>
-                                @endfor                           
-                              </ul>
+                                @endforeach
+                               </ul>
                             </div>
+
+                            <h4 class="uk-accordion-title uk-margin-remove">
+                              Sub Categories
+                            </h4>
+                            <div class="uk-accordion-content" aria-hidden="false">
+                              <ul class="uk-list tm-scrollbox">
+                                @for ($i = 0; $i < count($sub_categories); $i++)
+                                    <li>
+                                  <input class="tm-checkbox" id="brand-{{$i}}"  name="category[]" value="{{ $sub_categories[$i]->id }}" type="checkbox" {{ $subCategoriesForProduct->contains($sub_categories[$i]) ? 'checked' : '' }}>
+                                  <label for="brand-{{$i}}">
+                                    <span>{{ $sub_categories[$i]->name }}</span>
+                                  </label>
+                                </li>
+                                @endfor
+                                </ul>
+                            </div>
+                            
                           </section>
                         </fieldset>
                       </div>

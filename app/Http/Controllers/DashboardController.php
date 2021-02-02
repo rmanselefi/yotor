@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\SubCategory;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use App\CategoryProduct;
+use App\SubCategoryProduct;
 use Illuminate\Support\Facades\DB;
 
 
@@ -22,8 +24,10 @@ class DashboardController extends Controller
     {
         //
         $products = Product::where('user_id',auth()->id())->take(8)->inRandomOrder()->get();
+        $categories=Category::all();
         return view('dashboard')->with([            
             'products' => $products,
+            'categories'=>$categories
         ]);
     }
 
@@ -38,10 +42,16 @@ class DashboardController extends Controller
         $allCategories = Category::all();
         $categoriesForProduct = collect([]);
 
-        return view('create_product')->with([            
+        $sub_categories=SubCategory::all();
+        $subCategoriesForProduct = collect([]);
+
+        return view('create_product')->with([       
+            'categories'=>$allCategories,     
             'allCategories' => $allCategories,
             'categoriesForProduct'=>$categoriesForProduct,
-        ]);;;
+            'sub_categories'=>$sub_categories,
+            'subCategoriesForProduct'=>$subCategoriesForProduct
+        ]);
     }
 
 
@@ -88,6 +98,7 @@ class DashboardController extends Controller
             'updated_at' => date("Y-m-d H:i:s"),            
         ]);
         $this->updateProductCategories($request,$product->id);
+        $this->updateProductSubCategories($request,$product->id);
         $allCategories = Category::all();
         $categoriesForProduct = collect([]);
         // return view('create_product')->with([
@@ -105,6 +116,18 @@ class DashboardController extends Controller
                 CategoryProduct::create([
                     'product_id' => $id,
                     'category_id' => $category,
+                ]);
+            }
+        }
+    }
+
+    protected function updateProductSubCategories(Request $request, $id)
+    {
+        if ($request->sub_category) {
+            foreach ($request->sub_category as $category) {
+                SubCategoryProduct::create([
+                    'product_id' => $id,
+                    'sub_category_id' => $category,
                 ]);
             }
         }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Category;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
@@ -17,8 +18,12 @@ class OrdersController extends Controller
         // $orders = auth()->user()->orders; // n + 1 issues
 
         $orders = auth()->user()->orders()->with('products')->get(); // fix n + 1 issues
+        $categories=Category::all();
         
-        return view('my-orders')->with('orders', $orders);
+        return view('my-orders')->with([
+            'orders'=> $orders,
+            'categories'=>$categories
+            ]);
     }
 
     /**

@@ -55,8 +55,10 @@ class ShopController extends Controller
         $mightAlsoLike = Product::where('slug', '!=', $slug)->mightAlsoLike()->get();
 
         $stockLevel = getStockLevel($product->quantity);
+        $categories = Category::all();
 
         return view('product')->with([
+            'categories' => $categories,
             'product' => $product,
             'stockLevel' => $stockLevel,
             'mightAlsoLike' => $mightAlsoLike,
@@ -70,6 +72,7 @@ class ShopController extends Controller
         ]);
 
         $query = $request->input('query');
+        $categories = Category::all();
 
         // $products = Product::where('name', 'like', "%$query%")
         //                    ->orWhere('details', 'like', "%$query%")
@@ -77,8 +80,11 @@ class ShopController extends Controller
         //                    ->paginate(10);
 
         $products = Product::search($query)->paginate(10);
-
-        return view('search-results')->with('products', $products);
+        return view('search-results')->with([
+            'products'=> $products,
+            'categories'=>$categories
+            ]
+        );
     }
 
     public function searchAlgolia(Request $request)

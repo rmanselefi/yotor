@@ -2,13 +2,12 @@
 
 namespace App;
 
-use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Product extends Model
 {
-    use SearchableTrait, Searchable;
+    use SearchableTrait;
 
     protected $fillable = ['name','slug','user_id','price','details','description','status','author','image','quantity','featured'];
 
@@ -35,6 +34,11 @@ class Product extends Model
     public function categories()
     {
         return $this->belongsToMany('App\Category');
+    }
+
+    public function sub_categories()
+    {
+        return $this->belongsToMany('App\SubCategory');
     }
 
      public function users()

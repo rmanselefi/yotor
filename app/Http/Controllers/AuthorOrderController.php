@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Order;
 use App\OrderProduct;
+use App\Category;
 
 class AuthorOrderController extends Controller
 {
@@ -18,6 +19,7 @@ class AuthorOrderController extends Controller
         $user_id=auth()->user()->id;
         $orders=null;
         $ordprod=OrderProduct::where('user_id',$user_id)->get();
+        $categories=Category::all();
         foreach ($ordprod as $ord) {
             # code...
             $user_idd=$ord->order_id;
@@ -29,7 +31,8 @@ class AuthorOrderController extends Controller
             }
         }
         return view('vendor_orders')->with([
-            'orders'=>$orders
+            'orders'=>$orders,
+            'categories'=>$categories
         ]);
     }
 

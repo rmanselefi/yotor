@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -57,7 +58,12 @@ class UsersController extends Controller
      */
     public function edit()
     {
-        return view('my-profile')->with('user', auth()->user());
+        $categories=Category::all();
+        return view('my-profile')->with([
+            'user'=> auth()->user(),
+            'categories'=>$categories
+        ]
+        );
     }
 
     /**

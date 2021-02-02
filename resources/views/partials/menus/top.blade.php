@@ -1,4 +1,4 @@
-
+<div class="uk-navbar-container uk-light uk-visible@m tm-toolbar-container" style="background: #1c4027;">
                     <div class="uk-container uk-navbar" uk-navbar="">
             <div class="uk-navbar-left">
               <nav>
@@ -66,4 +66,5 @@
             </div>
             
           </div>
+</div>
           

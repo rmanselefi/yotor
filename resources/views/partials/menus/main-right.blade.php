@@ -74,7 +74,7 @@
                 </div>
               </div> --}}
     <li class="uk-navbar-nav">
-    <a class="uk-navbar-item uk-link-muted tm-navbar-button" href="{{ route('cart.index') }}" 
+    <a class="uk-navbar-item uk-link-muted tm-navbar-button" href="#" 
     uk-toggle="target: #cart-offcanvas">
                   <span uk-icon="cart" class="uk-icon">
                       <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> 

@@ -22,12 +22,12 @@ class ProductsTableSeeder extends Seeder
                 'description' =>'Lorem '. $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/laptop-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(1);
+            ])->categories()->attach(43);
         }
 
         // Make Laptop 1 a Desktop as well. Just to test multiple categories
         $product = Product::find(1);
-        $product->categories()->attach(2);
+        $product->categories()->attach(43);
 
         // Desktops
         for ($i = 1; $i <= 9; $i++) {
@@ -39,7 +39,7 @@ class ProductsTableSeeder extends Seeder
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/desktop-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(2);
+            ])->categories()->attach(44);
         }
 
         // Phones
@@ -52,7 +52,7 @@ class ProductsTableSeeder extends Seeder
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/phone-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(3);
+            ])->categories()->attach(45);
         }
 
         // Tablets
@@ -65,7 +65,7 @@ class ProductsTableSeeder extends Seeder
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/tablet-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(4);
+            ])->categories()->attach(46);
         }
 
         // TVs
@@ -78,7 +78,7 @@ class ProductsTableSeeder extends Seeder
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/tv-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(5);
+            ])->categories()->attach(47);
         }
 
         // Cameras
@@ -91,7 +91,7 @@ class ProductsTableSeeder extends Seeder
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/camera-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(6);
+            ])->categories()->attach(48);
         }
 
         // Appliances
@@ -104,7 +104,7 @@ class ProductsTableSeeder extends Seeder
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 'image' => 'products/dummy/appliance-'.$i.'.jpg',
                 'images' => '["products\/dummy\/laptop-2.jpg","products\/dummy\/laptop-3.jpg","products\/dummy\/laptop-4.jpg"]',
-            ])->categories()->attach(7);
+            ])->categories()->attach(49);
         }
 
         // Select random entries to be featured
