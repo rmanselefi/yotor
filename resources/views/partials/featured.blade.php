@@ -46,7 +46,7 @@
                         </div>
                         <div class="tm-product-card-shop">
                             <div class="tm-product-card-prices">
-                                <div class="tm-product-card-price">{{ $product->presentPrice() }}</div>
+                                <div class="tm-product-card-price">{{ $product->presentPrice()}}</div>
                             </div>
                             <div class="tm-product-card-add">
                                 @if ($product->quantity > 0)

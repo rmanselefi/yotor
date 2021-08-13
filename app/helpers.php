@@ -6,7 +6,7 @@ use App\SubCategory;
 function presentPrice($price)
 {
     $price = number_format($price, 2);     
-    return "$".$price;
+    return "Br".$price;
 }
 
 function presentDate($date)

@@ -50,7 +50,7 @@ class Product extends Model
     public function presentPrice()
     {
         $price = number_format($this->price, 2);     
-        return "$".$price;
+        return "Br ".$price;
     }
 
     public function scopeMightAlsoLike($query)

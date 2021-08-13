@@ -27,13 +27,11 @@
                 uk-sticky="cls-active: tm-navbar-container-fixed">
                 <div class="uk-container uk-navbar" uk-navbar="" style="height:120px;">
                     <div class="uk-navbar-left">
-                        <button class="uk-navbar-toggle uk-hidden@m uk-navbar-toggle-icon uk-icon"
-                            uk-toggle="target: #nav-offcanvas" uk-navbar-toggle-icon="">
-                            <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <rect y="9" width="20" height="2"></rect>
-                                <rect y="3" width="20" height="2"></rect>
-                                <rect y="15" width="20" height="2"></rect>
-                            </svg></button>
+                        <button
+                class="uk-navbar-toggle uk-hidden@m"
+                uk-toggle="target: #nav-offcanvas"
+                uk-navbar-toggle-icon
+              ></button>
                         <a class="uk-navbar-item uk-logo" href="/">
                             <img src={{ productImage('yotor_logo.png') }} width="90" height="32" alt="Logo">
                         </a>
@@ -47,10 +45,11 @@
                         </nav>
                     </div>
                     <div class="uk-navbar-right">
-                        <nav class="uk-visible@m">
+                        {{-- <nav class="uk-visible@m"> --}}
                             @include('partials.menus.main-right')
-                        </nav>
+                        {{-- </nav> --}}
                     </div>
+                    
                 </div>
             </div>
             <!-- end top-nav -->

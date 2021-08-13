@@ -35,6 +35,7 @@
     @include('partials.footer')
     @include('partials.cart_slide')
     @include('partials.nav_offcanvas')
+     </div>
 
     @yield('extra-js')
     
